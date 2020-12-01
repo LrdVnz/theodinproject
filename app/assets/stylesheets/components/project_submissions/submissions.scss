@@ -73,7 +73,8 @@
 
   &__actions {
     a,
-    span {
+    span,
+    button {
       margin-left: 1em;
     }
 
@@ -111,7 +112,7 @@
 
   &__public-icon {
     cursor: pointer;
-    
+
     color: $button-disabled;
 
     &--visible {

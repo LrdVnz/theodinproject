@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {
-  object, func, arrayOf, string, bool,
+  object, func, arrayOf, bool,
 } from 'prop-types';
 import FlipMove from 'react-flip-move';
 
@@ -10,7 +10,13 @@ import ProjectSubmissionContext from '../ProjectSubmissionContext';
 const noop = () => { };
 
 const SubmissionsList = ({
-  submissions, handleDelete, onFlag, handleUpdate, isDashboardView, handleLikeToggle, userSubmission,
+  submissions,
+  handleDelete,
+  onFlag,
+  handleUpdate,
+  isDashboardView,
+  handleLikeToggle,
+  userSubmission,
 }) => {
   const { allSubmissionsPath, legacySubmissionsUrl } = useContext(ProjectSubmissionContext);
   const hasSubmissions = submissions.length > 0;
@@ -61,7 +67,7 @@ const SubmissionsList = ({
           <a href={allSubmissionsPath}> View full list of solutions</a>
           {' '}
           or
-          <a href={legacySubmissionsUrl} target="_blank">View old submissions</a>
+          <a href={legacySubmissionsUrl} target="_blank" rel="noreferrer">View old submissions</a>
         </p>
         )}
     </div>
@@ -69,7 +75,6 @@ const SubmissionsList = ({
 };
 
 SubmissionsList.defaultProps = {
-  allSubmissionsPath: '',
   userSubmission: null,
   onFlag: noop,
   isDashboardView: false,
@@ -82,7 +87,6 @@ SubmissionsList.propTypes = {
   onFlag: func,
   handleUpdate: func.isRequired,
   handleLikeToggle: func.isRequired,
-  allSubmissionsPath: string,
   isDashboardView: bool,
 };
 
